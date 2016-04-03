@@ -39,4 +39,13 @@ $(document).ready(function() {
 			$('#results').append(makeCenterFromTracks(tracks));
 		});
 	});
+
+  $('body').on('click', 'button.rep-button', function() {
+    console.log('clicked');
+    $('#rep-menu').css('display', 'flex');
+  });
+
+  $('#fan').on('click', function() {
+    $('#rep-menu').fadeOut('slow');
+  });
 });
