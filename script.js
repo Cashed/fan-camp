@@ -4,24 +4,38 @@ SC.initialize({
 
 // Loop through tradck data and append SC embed.
 function makeCenterFromTracks(tracks) {
-  var results = document.querySelector('.input-group')
-	var track, permURL, newDiv;
+  var repContainer, track, trackDiv, button;
+  var container = document.querySelector('#results');
+
 	for (var i = 0; i <= 10; i++) {
-		newDiv = document.createElement("center");
-		newDiv.id = "track" + i;
+    repContainer = document.createElement('div');
+    repContainer.className = 'rep-container';
+
+    trackDiv = document.createElement('div');
+    trackDiv.className = 'track';
+		trackDiv.id = 'track' + i;
+
+    repContainer.appendChild(trackDiv);
+
+    button = document.createElement('button');
+    button.className = 'rep-button';
+
+    repContainer.appendChild(button);
+
 		track=tracks[i];
-		SC.oEmbed(track.permalink_url,{color:"ff0066",
-				  maxwidth:750, maxheight: 166},newDiv);
-		document.results.appendChild(newDiv);
+		SC.oEmbed(track.permalink_url,{color:'ff0066',
+				  width: '80%', maxheight: 81},trackDiv);
+
+		container.appendChild(repContainer);
+
+
 	}
 }
 
 $(document).ready(function() {
 	$('#search').click(function() {
-		// assign user variable to input name
 		var user = $('input[name=Soundcloud]').val();
-		// get SC data and append results into html page.
-		SC.get('/users/'+user+'/tracks', {limit: 100}, function(tracks) {
+		SC.get('/users/'+user+'/tracks', {limit: 10}, function(tracks) {
 			$('#results').append(makeCenterFromTracks(tracks));
 		});
 	});

@@ -18,7 +18,9 @@ body {
 }
 
 h1 {
-  text-shadow: 2px 2px 2px gray;
+  text-shadow: 2px 2px 2px #464545;
+  font-family: 'Rock Salt', cursive;
+  margin-bottom: 15px;
 }
 
 .input-group {
@@ -26,8 +28,50 @@ h1 {
   width: 75%;
   align-items: flex-start;
   justify-content: center;
-  box-shadow: 4px 4px 4px gray;
+  box-shadow: 4px 4px 4px #464545;
+  margin: 10px;
 }
+
+.result-container {
+  width: 75%;
+  overflow: scroll;
+  position: relative;
+}
+
+#results {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+}
+
+.rep-container {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: center;
+ width: 100%;
+}
+
+ #rep-menu {
+  position: absolute;
+
+ }
+
+ .rep-button {
+  justify-content: flex-end;
+  margin-left: 10px;
+  width: 10%;
+  height: 81px;
+  color: #00A770;
+ }
+
+.track {
+ width: 80%;
+ margin: 10px;
+ box-shadow: 4px 4px 4px #464545;
+ }
 
 footer {
   text-align: center;
